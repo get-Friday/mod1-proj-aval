@@ -5,8 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de compras</title>
+    <link rel="shortcut icon" href="fish.ico" type="image/x-icon">
 </head>
 <body>
-    
+    <header>
+        <div class="row-align">
+            <div id="context"></div>
+            <div></div>
+        </div>
+    </header>
+    <main>
+        <div class="column-align">
+            <div class="row-align">
+                <div class="column-align">
+                    <label for="insert-input">Inserir item na lista:</label>
+                    <input type="text" id="insert-input" placeholder="Insira um produto">
+                </div>
+                <button type="button">Inserir</button>
+            </div>
+            <div class="row-align">
+                <div id="list-container scroll-y">
+                    <p>Lista de compras</p>
+                </div>
+                <div>
+                    <p>Total das compras:</p>
+                    <p id="purchase-total">R$ 0,00</p>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
