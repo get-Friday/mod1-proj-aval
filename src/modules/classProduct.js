@@ -1,15 +1,37 @@
 class Product {
     name
     price
+    printProduct(prod) {
+        const fatherDiv = document.getElementById('list-container')
+
+        const checkbox = document.createElement('input')
+        const label = document.createElement('label')
+        const button = document.createElement('button')
+        const containerDiv = document.createElement('div')
+    
+        // <input type="checkbox" value="${price}" id="name-list-product">
+        checkbox.setAttribute('type', 'checkbox')
+        checkbox.setAttribute('value', prod.price)
+        checkbox.setAttribute('id', `${prod.name}-list-product`)
+    
+        // <label for="name-product">
+        label.setAttribute('for', `${prod.name}-product`)
+        label.innerHTML = prod.name
+    
+        // <button type="button" id="name-list-button">
+        button.setAttribute('type', 'button')
+        button.setAttribute('id', `${prod.name}-list-button`)
+        button.innerHTML = '✓'
+
+        containerDiv.appendChild(checkbox)
+        containerDiv.appendChild(label)
+        containerDiv.appendChild(button)
+        fatherDiv.appendChild(containerDiv)
+    }
     constructor(name, price = 0) {
         this.name = name
         this.price = price
     }
 }
 
-const instanceProduct = (name) => {
-    const prod = new Product(name)
-    return prod
-}
-
-export default instanceProduct
+export default  Product
