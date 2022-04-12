@@ -32,7 +32,7 @@ class Product {
         
         button.setAttribute('type', 'button')
         button.setAttribute('id', uniqueId)
-        button.innerHTML = 'Remover'
+        button.innerHTML = '&times;'
 
         containerDiv.appendChild(label)
         containerDiv.appendChild(button)

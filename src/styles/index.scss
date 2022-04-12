@@ -71,10 +71,11 @@ main {
     background-color: rgba($color: #000000, $alpha: 0.4);
 }
 
+
+// Modal style
+
 .modal-content {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    @include display-flex(space-between);
 
     background-color: #2200fd;
     color: #FFF;
@@ -88,10 +89,7 @@ main {
     height: min-content;
 
     div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        @include display-flex(center, column);
 
         width: 100%;
     }
