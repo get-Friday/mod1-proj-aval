@@ -32,7 +32,20 @@ const modalQuery = product => {
     })
 
     button.addEventListener('click', () => {
+        const price = parseInt(input.value)
+
+        if (!price) {
+            alert("Preencha o campo")
+            return
+        }
+
+        if (isNaN(price)) {
+            alert('Insira um número')
+            return
+        }
+        
         modalDiv.remove()
+        return price
     })
 }
 
