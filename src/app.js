@@ -3,7 +3,16 @@ import printProduct from './modules/printProduct.js'
 import { getFromLocalStorage, saveToLocalStorage } from './modules/localStorage.js'
 
 let listArray = []
-listArray = getFromLocalStorage()
+
+addEventListener('load', () => {
+    const list = getFromLocalStorage()
+    if (list.length > 0) {
+        listArray = list
+        list.forEach( e => {
+            printProduct(e)
+        })
+    }
+})
 
 const buttonAddProd = document.getElementById('insert-button')
 buttonAddProd.addEventListener('click', () => {
@@ -21,12 +30,4 @@ buttonAddProd.addEventListener('click', () => {
     saveToLocalStorage(listArray)
     
     input.value = ''
-})
-
-addEventListener('load', () => {
-    if (getFromLocalStorage().length > 0) {
-        getFromLocalStorage().forEach( e => {
-            printProduct(e)
-        })
-    }
 })

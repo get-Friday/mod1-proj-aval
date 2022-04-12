@@ -1,6 +1,6 @@
 import priceProduct from './priceProduct.js'
 
-const modalQuery = product => {
+const modalQuery = (product, uniqueId) => {
     const modalDiv = document.createElement('div')
     const contentDiv = document.createElement('div')
     const separatorDiv = document.createElement('div')
@@ -31,6 +31,10 @@ const modalQuery = product => {
 
     span.addEventListener('click', () => {
         modalDiv.remove()
+
+        // uncheck checkbox
+        const checkbox = document.getElementById(`${uniqueId}Checkbox`)
+        checkbox.checked = false
     })
 
     button.addEventListener('click', () => {
@@ -47,6 +51,7 @@ const modalQuery = product => {
         }
         
         modalDiv.remove()
+        // Altera o preço do produto
         priceProduct(price, product.name)
     })
 }

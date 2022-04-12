@@ -14,21 +14,24 @@ const printProduct = (prod) => {
 
     checkbox.setAttribute('type', 'checkbox')
     checkbox.setAttribute('value', prod.price)
-    checkbox.setAttribute('id', uniqueId)
-    checkbox.addEventListener('click', () => {
-        // Função responsável pela alteração do preço do produto
-        modalQuery(prod)
+    checkbox.setAttribute('id', `${uniqueId}Checkbox`)
+    checkbox.addEventListener('change', () => {
+        const checked = document.getElementById(`${uniqueId}Checkbox`).checked
+        if (checked) {
+            // Função responsável pela alteração do preço do produto
+            modalQuery(prod, uniqueId)
+        }
     })
 
     span.className = 'chkbox'
     
-    label.setAttribute('for', uniqueId)
+    label.setAttribute('for', `${uniqueId}Button`)
     label.appendChild(checkbox)
     label.appendChild(span)
     label.append(prod.name)
     
     button.setAttribute('type', 'button')
-    button.setAttribute('id', uniqueId)
+    button.setAttribute('id', `${uniqueId}Button`)
     button.innerHTML = '&times;'
     button.addEventListener('click', () => {
         // Função responsável por remover o produto
