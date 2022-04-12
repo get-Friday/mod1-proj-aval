@@ -3,6 +3,7 @@ import printProduct from './modules/printProduct.js'
 import { getFromLocalStorage, saveToLocalStorage } from './modules/localStorage.js'
 
 let listArray = []
+listArray = getFromLocalStorage()
 
 const buttonAddProd = document.getElementById('insert-button')
 buttonAddProd.addEventListener('click', () => {

@@ -1,9 +1,14 @@
-import modalQuery from "./modalQuery.js"
+import { getFromLocalStorage, saveToLocalStorage } from "./localStorage.js"
 
-const priceProduct = async (product, uniqueId) => {
-    const price =  modalQuery(product)
-    console.log(price)
-    // TODO
+const priceProduct = async (price, productName) => {
+    const array = getFromLocalStorage()
+    const filtered = array.filter(e => e.name == productName)
+    filtered[0].price = price
+    console.log(filtered[0])
+
+    const newArray = array.filter(e => e.name != productName)
+    newArray.push(filtered[0])
+    saveToLocalStorage(newArray)
 }
 
 export default priceProduct

@@ -1,5 +1,5 @@
 import { getFromLocalStorage, saveToLocalStorage } from "./localStorage.js"
-import priceProduct from "./priceProduct.js"
+import modalQuery from "./modalQuery.js"
 
 const printProduct = (prod) => {
     const uniqueId = Math.floor(Math.random() * 9999)
@@ -17,7 +17,7 @@ const printProduct = (prod) => {
     checkbox.setAttribute('id', uniqueId)
     checkbox.addEventListener('click', () => {
         // Função responsável pela alteração do preço do produto
-        priceProduct(prod)
+        modalQuery(prod)
     })
 
     span.className = 'chkbox'

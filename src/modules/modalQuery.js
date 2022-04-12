@@ -1,3 +1,5 @@
+import priceProduct from './priceProduct.js'
+
 const modalQuery = product => {
     const modalDiv = document.createElement('div')
     const contentDiv = document.createElement('div')
@@ -45,7 +47,7 @@ const modalQuery = product => {
         }
         
         modalDiv.remove()
-        return price
+        priceProduct(price, product.name)
     })
 }
 
