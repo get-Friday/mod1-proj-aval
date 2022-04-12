@@ -1,3 +1,4 @@
+import { getFromLocalStorage, saveToLocalStorage } from "./localStorage.js"
 import priceProduct from "./priceProduct.js"
 
 class Product {
@@ -19,7 +20,6 @@ class Product {
         checkbox.setAttribute('id', uniqueId)
         checkbox.addEventListener('click', () => {
             // Função responsável pela alteração do preço do produto
-            console.log('ouviu o click')
             priceProduct(prod)
         })
 
@@ -33,10 +33,17 @@ class Product {
         button.setAttribute('type', 'button')
         button.setAttribute('id', uniqueId)
         button.innerHTML = '&times;'
+        button.addEventListener('click', () => {
+            // Função responsável por remover o produto
+            const listArray = getFromLocalStorage()
+            const newArray = listArray.filter((e) => e.name != prod.name)
+            saveToLocalStorage(newArray)
+            containerDiv.remove()
+        })
 
+        // div>label>(input:checkbox+span.chkbox)+button
         containerDiv.appendChild(label)
         containerDiv.appendChild(button)
-
         parentDiv.appendChild(containerDiv)
     }
     constructor(name, price = 0) {
