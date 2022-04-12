@@ -57,3 +57,54 @@ main {
         font-size: 25px;
     }
 }
+
+#modal {
+    position: fixed;
+    z-index: 1;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba($color: #000000, $alpha: 0.4);
+}
+
+.modal-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    background-color: #2200fd;
+    color: #FFF;
+    
+    margin: 15% auto;
+    padding: 20px;
+    
+    border-radius: 10px;
+
+    width: 30%;
+    height: min-content;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+    }
+}
+
+.modal-close {
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+    font-weight: bold;
+
+    &:hover {
+        color: rgb(255, 0, 0);
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

@@ -1,39 +1,43 @@
+import priceProduct from "./priceProduct.js"
+
 class Product {
     name
     price
     printProduct(prod) {
-        const fatherDiv = document.getElementById('list-container')
+        const uniqueId = Math.floor(Math.random() * 9999)
+        
+        const parentDiv = document.getElementById('list-container')
 
         const checkbox = document.createElement('input')
         const label = document.createElement('label')
         const button = document.createElement('button')
         const span = document.createElement('span')
         const containerDiv = document.createElement('div')
-        
-        // <input type="checkbox" value="${price}" id="name-list-product">
+
         checkbox.setAttribute('type', 'checkbox')
         checkbox.setAttribute('value', prod.price)
-        checkbox.setAttribute('id', `${prod.name}-list-product`)
+        checkbox.setAttribute('id', uniqueId)
+        checkbox.addEventListener('click', () => {
+            // Função responsável pela alteração do preço do produto
+            console.log('ouviu o click')
+            priceProduct(prod)
+        })
 
-        // <span class='chkbox'>
         span.className = 'chkbox'
         
-        // <label for="name-product">
-        label.setAttribute('for', `${prod.name}-product`)
-        
-        // <button type="button" id="name-list-button">
-        button.setAttribute('type', 'button')
-        button.setAttribute('id', `${prod.name}-list-button`)
-        button.innerHTML = '✓'
-        
+        label.setAttribute('for', uniqueId)
         label.appendChild(checkbox)
         label.appendChild(span)
         label.append(prod.name)
+        
+        button.setAttribute('type', 'button')
+        button.setAttribute('id', uniqueId)
+        button.innerHTML = 'Remover'
 
         containerDiv.appendChild(label)
         containerDiv.appendChild(button)
 
-        fatherDiv.appendChild(containerDiv)
+        parentDiv.appendChild(containerDiv)
     }
     constructor(name, price = 0) {
         this.name = name
@@ -41,4 +45,4 @@ class Product {
     }
 }
 
-export default  Product
+export default Product
