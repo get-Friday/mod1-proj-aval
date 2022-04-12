@@ -6,6 +6,12 @@ let listArray = []
 
 addEventListener('load', () => {
     const list = getFromLocalStorage()
+
+    if (!list) {
+        saveToLocalStorage(listArray)
+        return
+    }
+
     if (list.length > 0) {
         listArray = list
         list.forEach( e => {
@@ -23,11 +29,12 @@ buttonAddProd.addEventListener('click', () => {
         return
     }
 
+    const list = getFromLocalStorage()
     const prod = new Product(input.value)
     printProduct(prod)
     
-    listArray.push(prod)
-    saveToLocalStorage(listArray)
+    list.push(prod)
+    saveToLocalStorage(list)
     
     input.value = ''
 })

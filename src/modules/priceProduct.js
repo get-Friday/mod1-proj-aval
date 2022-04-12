@@ -4,7 +4,6 @@ const priceProduct = async (price, productName) => {
     const array = getFromLocalStorage()
     const filtered = array.filter(e => e.name == productName)
     filtered[0].price = price
-    filtered[0].checked = true
 
     const newArray = array.filter(e => e.name != productName)
     newArray.push(filtered[0])
