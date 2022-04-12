@@ -1,4 +1,5 @@
 import Product from './modules/classProduct.js'
+import printProduct from './modules/printProduct.js'
 import { getFromLocalStorage, saveToLocalStorage } from './modules/localStorage.js'
 
 let listArray = []
@@ -15,7 +16,7 @@ buttonAddProd.addEventListener('click', () => {
 
     const prod = new Product(input.value)
     listArray.push(prod)
-    prod.printProduct(prod)
+    printProduct(prod)
     
     saveToLocalStorage(listArray)
     
@@ -23,5 +24,9 @@ buttonAddProd.addEventListener('click', () => {
 })
 
 addEventListener('load', () => {
-    console.log(getFromLocalStorage())
+    if (getFromLocalStorage().length > 0) {
+        getFromLocalStorage().forEach( e => {
+            printProduct(e)
+        })
+    }
 })
