@@ -30,15 +30,14 @@ const modalQuery = (product, uniqueId) => {
     contentDiv.appendChild(span)
 
     span.addEventListener('click', () => {
-        modalDiv.remove()
-
-        // uncheck checkbox
         const checkbox = document.getElementById(`${uniqueId}Checkbox`)
+        
+        modalDiv.remove()
         checkbox.checked = false
     })
 
     button.addEventListener('click', () => {
-        const price = parseInt(input.value)
+        const price = parseFloat(input.value).toFixed(2)
 
         if (!price) {
             alert("Preencha o campo")
@@ -51,6 +50,7 @@ const modalQuery = (product, uniqueId) => {
         }
         
         modalDiv.remove()
+
         // Altera o preço do produto
         priceProduct(price, product.name)
     })

@@ -1,9 +1,11 @@
 class Product {
     name
     price
-    constructor(name, price = 0) {
+    checked
+    constructor(name, price = 0, checked = false) {
         this.name = name
         this.price = price
+        this.checked = checked
     }
 }
 
