@@ -30,7 +30,7 @@ const modalQuery = (product, uniqueId) => {
 	label.innerHTML = `Valor de ${product.name}`;
 	button.innerHTML = "Inserir";
 
-	// #modal>.modal-content>div>(label+input+button)+span)
+	// #modal>.modal-content>div>((label+input+button)+span)
 	document.body.appendChild(modalDiv);
 	modalDiv.appendChild(contentDiv);
 	contentDiv.appendChild(separatorDiv);
@@ -67,8 +67,6 @@ const modalQuery = (product, uniqueId) => {
 		}
 
 		modalDiv.remove();
-
-		// Altera o preço do produto
 		priceProduct(price, product.name);
 		printPurchaseAmount();
 	});

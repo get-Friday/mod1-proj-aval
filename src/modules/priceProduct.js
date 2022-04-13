@@ -1,11 +1,11 @@
 import { getFromLocalStorage, saveToLocalStorage } from "./localStorage.js";
 
-const priceProduct = async (newValue, productName) => {
+const priceProduct = async (newPrice, productName) => {
 	const array = getFromLocalStorage();
 
 	array.forEach((e) => {
 		if (e.name == productName) {
-			e.price = newValue;
+			e.price = newPrice;
 		}
 	});
 

@@ -6,7 +6,7 @@ import {
 } from "./modules/localStorage.js";
 import printPurchaseAmount from "./modules/printPurchaseAmount.js";
 
-const buttonAddProd = document.getElementById("insert-button");
+const insertProductButton = document.getElementById("insert-button");
 
 addEventListener("load", () => {
 	const list = getFromLocalStorage();
@@ -26,7 +26,7 @@ addEventListener("load", () => {
 	}
 });
 
-buttonAddProd.addEventListener("click", () => {
+insertProductButton.addEventListener("click", () => {
 	const input = document.getElementById("insert-input");
 	const list = getFromLocalStorage();
 	const prod = new Product(input.value);

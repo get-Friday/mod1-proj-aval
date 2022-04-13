@@ -8,14 +8,14 @@ import printPurchaseAmount from "./printPurchaseAmount.js";
 import HTMLElement from "./classElement.js";
 import buildHTML from "./buildHTML.js";
 
-const printProduct = (prod) => {
+const printProduct = productList => {
 	const uniqueId = Math.floor(Math.random() * 9999);
 	const parentDiv = document.getElementById("list-container");
 	const productContainer = document.createElement("div");
 
 	const checkboxAttributes = [
 		{ key: "type", value: "checkbox" },
-		{ key: "value", value: prod.price },
+		{ key: "value", value: productList.price },
 		{ key: "id", value: `${uniqueId}checkbox` },
 	];
 	const checkbox = buildHTML(new HTMLElement("input", checkboxAttributes));
@@ -33,15 +33,15 @@ const printProduct = (prod) => {
 	const span = buildHTML(new HTMLElement("span", spanAttributes));
 
 	checkbox.addEventListener("change", () => {
-		checkItem(uniqueId, prod);
+		checkItem(uniqueId, productList);
 	});
 
 	button.innerHTML = "&times;";
 	button.addEventListener("click", () => {
-		removeProduct(prod.name, productContainer);
+		removeProduct(productList.name, productContainer);
 	});
 
-	if (prod.checked) {
+	if (productList.checked) {
 		checkbox.checked = true;
 	}
 
@@ -49,18 +49,18 @@ const printProduct = (prod) => {
 	productContainer.appendChild(label);
 	label.appendChild(checkbox);
 	label.appendChild(span);
-	label.append(prod.name);
+	label.append(productList.name);
 	productContainer.appendChild(button);
 	parentDiv.appendChild(productContainer);
 };
 
-const removeProduct = (productName, listHTMLElement) => {
+const removeProduct = (productName, productHTMLElement) => {
 	const array = getFromLocalStorage();
 	const removedItem = array.filter((e) => e.name != productName);
 
 	saveToLocalStorage(removedItem);
 	printPurchaseAmount();
-	listHTMLElement.remove();
+	productHTMLElement.remove();
 };
 
 const checkItem = (elementId, productObject) => {

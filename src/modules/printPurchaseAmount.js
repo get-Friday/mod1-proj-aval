@@ -1,11 +1,11 @@
 import { getFromLocalStorage } from "./localStorage.js";
 
 const printPurchaseAmount = () => {
-	const array = getFromLocalStorage();
+	const list = getFromLocalStorage();
 	const purchaseTotal = document.getElementById("purchase-total");
 	let total = 0;
 
-	array.forEach((e) => {
+	list.forEach((e) => {
 		if (e.checked == true) {
 			total += Number.parseFloat(e.price);
 		}
