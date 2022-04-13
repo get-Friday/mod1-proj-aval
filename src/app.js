@@ -27,9 +27,22 @@ buttonAddProd.addEventListener('click', () => {
     const input = document.getElementById('insert-input')
     const list = getFromLocalStorage()
     const prod = new Product(input.value)
+    let alreadyExist = false
 
     if (!input.value) {
         alert('Por favor preencha o campo')
+        return
+    }
+
+    list.forEach(e => {
+        if (e.name == input.value) {
+            alreadyExist = true
+        }
+    })
+
+    if (alreadyExist) {
+        alert('Esse produto já existe na lista!')
+        input.value = ''
         return
     }
 
