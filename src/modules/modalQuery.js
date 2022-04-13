@@ -52,6 +52,12 @@ const modalQuery = (product, uniqueId) => {
             alert('Insira um número')
             return
         }
+
+        if(price <= 0){
+            alert('Insira um número positivo')
+            input.value = ''
+            return
+        }
         
         modalDiv.remove()
 
