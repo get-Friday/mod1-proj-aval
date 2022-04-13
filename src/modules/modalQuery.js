@@ -1,4 +1,6 @@
+import { updateCheckedAttribute } from './localStorage.js'
 import priceProduct from './priceProduct.js'
+import printPurchaseAmount from './printPurchaseAmount.js'
 
 const modalQuery = (product, uniqueId) => {
     const modalDiv = document.createElement('div')
@@ -16,6 +18,7 @@ const modalQuery = (product, uniqueId) => {
     span.innerHTML = '&times;'
 
     label.innerHTML = `Valor de ${product.name}`    
+    input.setAttribute('type', 'number')
     input.setAttribute('placeholder', '0,00')
 
     button.innerHTML = 'Inserir'
@@ -32,8 +35,9 @@ const modalQuery = (product, uniqueId) => {
     span.addEventListener('click', () => {
         const checkbox = document.getElementById(`${uniqueId}Checkbox`)
         
-        modalDiv.remove()
         checkbox.checked = false
+        updateCheckedAttribute(product.name, false)
+        modalDiv.remove()
     })
 
     button.addEventListener('click', () => {
@@ -53,6 +57,7 @@ const modalQuery = (product, uniqueId) => {
 
         // Altera o preço do produto
         priceProduct(price, product.name)
+        printPurchaseAmount()
     })
 }
 

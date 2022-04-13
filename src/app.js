@@ -1,25 +1,25 @@
 import Product from './modules/classProduct.js'
 import printProduct from './modules/printProduct.js'
 import { getFromLocalStorage, saveToLocalStorage } from './modules/localStorage.js'
+import printPurchaseAmount from './modules/printPurchaseAmount.js'
 
-let listArray = []
 const buttonAddProd = document.getElementById('insert-button')
 
 addEventListener('load', () => {
     const list = getFromLocalStorage()
 
-    // Instância array vazio no localStorage
+    // Instancia array vazio no localStorage
     if (!list) {
-        saveToLocalStorage(listArray)
+        saveToLocalStorage([])
         return
     }
 
     // Imprime array do localStorage na lista
     if (list.length > 0) {
-        listArray = list
         list.forEach( e => {
             printProduct(e)
         })
+        printPurchaseAmount()
     }
 })
 

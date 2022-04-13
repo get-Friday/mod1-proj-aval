@@ -4,4 +4,21 @@ const saveToLocalStorage = array => {
 
 const getFromLocalStorage = () => JSON.parse(localStorage.getItem('Compras'))
 
-export { saveToLocalStorage, getFromLocalStorage }
+const updateCheckedAttribute = (objectName, option) => {
+    const array = getFromLocalStorage()
+
+    array.forEach(e => {
+        if (e.name == objectName) {
+            switch(option) {
+                case true:
+                    e.checked = true
+                    break
+                case false:
+                    e.checked = false
+            }
+        }
+    })
+    saveToLocalStorage(array)
+}
+
+export { saveToLocalStorage, getFromLocalStorage, updateCheckedAttribute }
