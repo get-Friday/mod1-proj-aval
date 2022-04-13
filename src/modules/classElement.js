@@ -26,3 +26,5 @@ class HTMLElement {
         this.name = name
     }
 }
+
+export { HTMLAttribute, HTMLElement }
