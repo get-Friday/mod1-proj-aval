@@ -1,67 +1,78 @@
-import { getFromLocalStorage, saveToLocalStorage, updateCheckedAttribute } from "./localStorage.js"
-import modalQuery from "./modalQuery.js"
-import printPurchaseAmount from "./printPurchaseAmount.js"
+import {
+	getFromLocalStorage,
+	saveToLocalStorage,
+	updateCheckedAttribute,
+} from "./localStorage.js";
+import modalQuery from "./modalQuery.js";
+import printPurchaseAmount from "./printPurchaseAmount.js";
+import HTMLElement from "./classElement.js";
+import buildHTML from "./buildHTML.js";
 
 const printProduct = (prod) => {
-    const uniqueId = Math.floor(Math.random() * 9999)
-    const parentDiv = document.getElementById('list-container')
-    const checkbox = document.createElement('input')
-    const label = document.createElement('label')
-    const button = document.createElement('button')
-    const span = document.createElement('span')
-    const containerDiv = document.createElement('div')
+	const uniqueId = Math.floor(Math.random() * 9999);
+	const parentDiv = document.getElementById("list-container");
+	const productContainer = document.createElement("div");
 
-    checkbox.setAttribute('type', 'checkbox')
-    checkbox.setAttribute('value', prod.price)
-    checkbox.setAttribute('id', `${uniqueId}Checkbox`)
-    checkbox.addEventListener('change', () => {
-        checkItem(uniqueId, prod)
-    })
+	const checkboxAttributes = [
+		{ key: "type", value: "checkbox" },
+		{ key: "value", value: prod.price },
+		{ key: "id", value: `${uniqueId}checkbox` },
+	];
+	const checkbox = buildHTML(new HTMLElement("input", checkboxAttributes));
 
-    if (prod.checked) {
-        checkbox.checked = true
-    }
+	const labelAttributes = [{ key: "for", value: `${uniqueId}button` }];
+	const label = buildHTML(new HTMLElement("label", labelAttributes));
 
-    span.className = 'chkbox'
-    
-    label.setAttribute('for', `${uniqueId}Button`)
-    label.appendChild(checkbox)
-    label.appendChild(span)
-    label.append(prod.name)
-    
-    button.setAttribute('type', 'button')
-    button.setAttribute('id', `${uniqueId}Button`)
-    button.innerHTML = '&times;'
-    button.addEventListener('click', () => {
-        removeProduct(prod.name, containerDiv)
-    })
+	const buttonAttributes = [
+		{ key: "type", value: "button" },
+		{ key: "id", value: `${uniqueId}button` },
+	];
+	const button = buildHTML(new HTMLElement("button", buttonAttributes));
 
-    // div>label>(input:checkbox+span.chkbox)+button
-    containerDiv.appendChild(label)
-    containerDiv.appendChild(button)
-    parentDiv.appendChild(containerDiv)
-}
+	const spanAttributes = [{ key: "class", value: "chkbox" }];
+	const span = buildHTML(new HTMLElement("span", spanAttributes));
+
+	checkbox.addEventListener("change", () => {
+		checkItem(uniqueId, prod);
+	});
+
+	button.innerHTML = "&times;";
+	button.addEventListener("click", () => {
+		removeProduct(prod.name, productContainer);
+	});
+
+	if (prod.checked) {
+		checkbox.checked = true;
+	}
+
+	// div>label>(input:checkbox+span.chkbox)+button
+	productContainer.appendChild(label);
+	label.appendChild(checkbox);
+	label.appendChild(span);
+	label.append(prod.name);
+	productContainer.appendChild(button);
+	parentDiv.appendChild(productContainer);
+};
 
 const removeProduct = (productName, listHTMLElement) => {
-    const array = getFromLocalStorage()
-    const removedItem = array.filter(e => e.name != productName)
+	const array = getFromLocalStorage();
+	const removedItem = array.filter((e) => e.name != productName);
 
-    saveToLocalStorage(removedItem)
-    printPurchaseAmount()
-    listHTMLElement.remove()
-}
+	saveToLocalStorage(removedItem);
+	printPurchaseAmount();
+	listHTMLElement.remove();
+};
 
 const checkItem = (elementId, productObject) => {
-    const checked = document.getElementById(`${elementId}Checkbox`).checked
+	const checked = document.getElementById(`${elementId}checkbox`).checked;
 
-    if (checked) {
-        // Função responsável pela alteração do preço do produto
-        updateCheckedAttribute(productObject.name, true)
-        modalQuery(productObject, elementId)
-    } else {
-        updateCheckedAttribute(productObject.name, false)
-        printPurchaseAmount()
-    }
-}
+	if (checked) {
+		updateCheckedAttribute(productObject.name, true);
+		modalQuery(productObject, elementId);
+	} else {
+		updateCheckedAttribute(productObject.name, false);
+		printPurchaseAmount();
+	}
+};
 
-export default printProduct
+export default printProduct;
