@@ -1,26 +1,30 @@
 import { updateCheckedAttribute } from './localStorage.js'
 import priceProduct from './priceProduct.js'
 import printPurchaseAmount from './printPurchaseAmount.js'
+import HTMLElement from './classElement.js'
+import buildHTML from './buildHTML.js'
 
 const modalQuery = (product, uniqueId) => {
-    const modalDiv = document.createElement('div')
-    const contentDiv = document.createElement('div')
+    const modalDivAttributes = [{key:'id', value:'modal'}]
+    const modalDiv = buildHTML(new HTMLElement('div', modalDivAttributes))
+
+    const contentDivAttributes = [{key:'class', value:'modal-content'}]
+    const contentDiv = buildHTML(new HTMLElement('div', contentDivAttributes))
+
     const separatorDiv = document.createElement('div')
-    const span = document.createElement('span')
-    const input = document.createElement('input')
-    const label = document.createElement('label')
-    const button = document.createElement('button')
 
-    modalDiv.setAttribute('id', 'modal')
-    contentDiv.setAttribute('class', 'modal-content')
+    const spanAttributes = [{key:'class', value:'modal-close'}]
+    const span = buildHTML(new HTMLElement('span', spanAttributes))
 
-    span.setAttribute('class', 'modal-close')
+    const inputAttributes = [{key:'type', value:'number'}, {key:'placeholder', value:'0,00'}]
+    const input = buildHTML(new HTMLElement('input', inputAttributes))
+
+    const label = buildHTML(new HTMLElement('label', []))
+    
+    const button = buildHTML(new HTMLElement('button', []))
+        
     span.innerHTML = '&times;'
-
     label.innerHTML = `Valor de ${product.name}`    
-    input.setAttribute('type', 'number')
-    input.setAttribute('placeholder', '0,00')
-
     button.innerHTML = 'Inserir'
 
     // #modal>.modal-content>div>(label+input+button)+span)
@@ -33,7 +37,7 @@ const modalQuery = (product, uniqueId) => {
     contentDiv.appendChild(span)
 
     span.addEventListener('click', () => {
-        const checkbox = document.getElementById(`${uniqueId}Checkbox`)
+        const checkbox = document.getElementById(`${uniqueId}checkbox`)
         
         checkbox.checked = false
         updateCheckedAttribute(product.name, false)
