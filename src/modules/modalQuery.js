@@ -27,7 +27,7 @@ const modalQuery = (product, uniqueId) => {
 	const button = buildHTML(new HTMLElement("button", []));
 
 	span.innerHTML = "&times;";
-	label.innerHTML = `Valor de ${product.name}`;
+	label.innerHTML = `Valor de ${product.name}:`;
 	button.innerHTML = "Inserir";
 
 	// #modal>.modal-content>div>((label+input+button)+span)

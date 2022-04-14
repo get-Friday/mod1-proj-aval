@@ -3,12 +3,12 @@ html, body {
   margin: 0;
   position: relative;
   height: 100vh;
-  background: linear-gradient(to bottom right, transparent 50%, #fff 50%) 0 0/100% 100% no-repeat, #0001FA;
+  background: linear-gradient(to bottom right, transparent 50%, #fff 50%) 0 0/100% 100% no-repeat, #0000b4;
 }
 
 header {
   height: 35px;
-  background-color: #0001FA;
+  background-color: #0000b4;
   color: #FFF;
 }
 header .row-align {
@@ -48,7 +48,7 @@ main {
   width: 150px;
   font-size: 1.2rem;
   color: #FFF;
-  background-color: #0001FA;
+  background-color: #0000b4;
   border: 1px solid #FFF;
   border-radius: 5px;
   padding: 5px;
@@ -101,7 +101,7 @@ main {
 
 input {
   height: 2em;
-  border: 1px solid #0001FA;
+  border: 1px solid #0000b4;
   border-radius: 5px;
   padding: 5px;
 }
@@ -147,7 +147,7 @@ input:focus {
 }
 .modal-content div button {
   width: 150px;
-  color: #0001FA;
+  color: #0000b4;
   background-color: #FFF;
   padding: 5px;
   border: 1px solid #000;
