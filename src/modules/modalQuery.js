@@ -42,6 +42,7 @@ const modalQuery = (product, uniqueId) => {
 	span.addEventListener("click", () => {
 		const checkbox = document.getElementById(`${uniqueId}checkbox`);
 
+		checkbox.parentElement.style.textDecoration = 'none'
 		checkbox.checked = false;
 		updateCheckedAttribute(product.name, false);
 		modalDiv.remove();
