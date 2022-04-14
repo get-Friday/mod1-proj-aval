@@ -32,8 +32,9 @@ insertProductButton.addEventListener("click", () => {
 	const prod = new Product(input.value);
 	let alreadyExist = false;
 
-	if (!input.value) {
+	if (!input.value || input.value.trim() == '') {
 		alert("Por favor preencha o campo");
+		input.value = ''
 		return;
 	}
 
