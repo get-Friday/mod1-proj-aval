@@ -22,8 +22,8 @@ const printProduct = productList => {
 	];
 	const checkbox = buildHTML(new HTMLElement("input", checkboxAttributes));
 
-	const labelAttributes = [{ key: "for", value: `${uniqueId}button` }];
-	const label = buildHTML(new HTMLElement("label", labelAttributes));
+
+	const label = buildHTML(new HTMLElement("label", []));
 
 	const buttonAttributes = [
 		{ key: "type", value: "button" },
@@ -49,9 +49,9 @@ const printProduct = productList => {
 
 	// div>label>(input:checkbox+span.chkbox)+button
 	productContainer.appendChild(label);
+	label.append(productList.name);
 	label.appendChild(checkbox);
 	label.appendChild(span);
-	label.append(productList.name);
 	productContainer.appendChild(button);
 	parentDiv.appendChild(productContainer);
 };

@@ -103,12 +103,70 @@ main {
     .list-item {
         @include display-flex(flex-start);
 
-        
+        // customized checkbox
         label {
-            @include display-flex();
+            display: block;
+            position: relative;
+
+            padding: 5px 15px 5px 35px;
             
-            padding: 5px;
-            margin-right: 5px;
+            cursor: pointer;
+            font-size: 22px;
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+
+            input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+
+            .chkbox {
+                position: absolute;
+                top: 5px;
+                left: 0;
+                height: 25px;
+                width: 25px;
+
+                border: 1px solid #F1F1F1;
+                border-radius: 5px;
+            }
+
+            &:hover input ~ .chkbox {
+                background-color: #ccc;
+            }
+
+            input:checked ~ .chkbox {
+                background-color: #2697f4;
+                border: none;
+            }
+
+            .chkbox:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+
+            input:checked ~ .chkbox:after {
+                display: block;
+            }
+
+            .chkbox:after {
+                left: 9px;
+                top: 5px;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
         }
 
         button {
