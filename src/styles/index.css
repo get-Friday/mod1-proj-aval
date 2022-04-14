@@ -33,8 +33,33 @@ main {
 .column-align {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
+}
+.column-align label {
+  color: #FFF;
+  font-size: 1.2rem;
+}
+.column-align #insert-input {
+  width: 40vw;
+}
+.column-align #insert-button {
+  margin-left: 60px;
+  width: 150px;
+  font-size: 1.2rem;
+  color: #FFF;
+  background-color: #0001FA;
+  border: 1px solid #FFF;
+  border-radius: 5px;
+  padding: 5px;
+}
+.column-align #insert-button:hover {
+  background-color: #1f1ffc;
+  cursor: pointer;
+}
+
+.flex-start {
+  align-items: flex-start;
 }
 
 #list-container {
@@ -42,12 +67,46 @@ main {
   height: 250px;
   padding: 35px;
   margin: 50px 30px 0 0;
-  background-color: #5c5c5c;
+  background-color: #414141;
   color: #FFF;
   border-radius: 25px;
 }
 #list-container h1 {
   font-size: 25px;
+}
+#list-container .list-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+#list-container .list-item label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 5px;
+  margin-right: 5px;
+}
+#list-container .list-item button {
+  background-color: #FFF;
+  font-size: 1em;
+  border: 2px solid #F1F1F1;
+  border-radius: 20px;
+}
+#list-container .list-item button:hover {
+  background-color: #F1F1F1;
+  cursor: pointer;
+}
+
+input {
+  height: 2em;
+  border: 1px solid #0001FA;
+  border-radius: 5px;
+  padding: 5px;
+}
+input:focus {
+  outline: none;
 }
 
 #modal {
@@ -62,9 +121,8 @@ main {
 
 .modal-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  flex-direction: row;
   background-color: #2200fd;
   color: #FFF;
   margin: 15% auto;
@@ -79,6 +137,26 @@ main {
   justify-content: center;
   flex-direction: column;
   width: 100%;
+}
+.modal-content div label {
+  font-size: 1.5rem;
+}
+.modal-content div input {
+  margin: 10px 0 5px 0;
+  width: 90%;
+}
+.modal-content div button {
+  width: 150px;
+  color: #0001FA;
+  background-color: #FFF;
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+.modal-content div button:hover {
+  background-color: #F1F1F1;
+  cursor: pointer;
 }
 
 .modal-close {

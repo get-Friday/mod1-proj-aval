@@ -46,7 +46,42 @@ main {
 }
 
 .column-align {
-    @include display-flex(center, column)
+    @include display-flex(flex-start, column);
+
+    label {
+        color: #FFF;
+        font-size: 1.2rem;
+    }
+    
+    #insert-input {
+        width: 40vw;
+    }
+
+    #insert-button {
+        margin-left: 60px;
+        width: 150px;
+
+        font-size: 1.2rem;
+        
+        color: #FFF;
+        background-color: #0001FA;
+    
+        border: 1px solid #FFF;
+        border-radius: 5px;
+    
+        padding: 5px;
+    
+    
+        &:hover {
+            background-color: #1f1ffc;
+    
+            cursor: pointer;
+        }
+    }            
+}
+
+.flex-start {
+    align-items: flex-start;
 }
 
 #list-container {
@@ -56,7 +91,7 @@ main {
     padding: 35px;
     margin: 50px 30px 0 0;
 
-    background-color: #5c5c5c;
+    background-color: #414141;
     color: #FFF;
 
     border-radius: 25px;
@@ -64,7 +99,47 @@ main {
     h1 {
         font-size: 25px;
     }
+
+    .list-item {
+        @include display-flex(flex-start);
+
+        
+        label {
+            @include display-flex();
+            
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #FFF;
+
+            font-size: 1em;
+
+            border: 2px solid #F1F1F1;
+            border-radius: 20px;
+
+            &:hover {
+                background-color: #F1F1F1;
+                cursor: pointer;
+            }
+        }
+    }
 }
+
+input {
+    height: 2em;
+
+    border: 1px solid #0001FA;
+    border-radius: 5px;
+
+    padding: 5px;
+    
+    &:focus {
+        outline: none;
+    }
+}
+// Modal style
 
 #modal {
     position: fixed;
@@ -79,11 +154,10 @@ main {
     background-color: rgba($color: #000000, $alpha: 0.4);
 }
 
-
-// Modal style
-
 .modal-content {
-    @include display-flex(space-between);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 
     background-color: #2200fd;
     color: #FFF;
@@ -100,6 +174,35 @@ main {
         @include display-flex(center, column);
 
         width: 100%;
+
+        label {
+            font-size: 1.5rem;
+        }
+
+        input { 
+            margin: 10px 0 5px 0;
+            width: 90%;
+        }
+        
+        button {
+            width: 150px;
+
+            color: #0001FA;
+            background-color: #FFF;
+            
+            padding: 5px;
+
+            border: 1px solid #000;
+            border-radius: 5px;
+
+            font-size: 1.2rem;
+
+            &:hover {
+                background-color: #F1F1F1;
+
+                cursor: pointer;
+            }
+        }
     }
 }
 

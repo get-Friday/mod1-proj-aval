@@ -11,7 +11,9 @@ import buildHTML from "./buildHTML.js";
 const printProduct = productList => {
 	const uniqueId = Math.floor(Math.random() * 9999);
 	const parentDiv = document.getElementById("list-container");
-	const productContainer = document.createElement("div");
+	
+	const productContainerAttributes = [{key: "class", value: "list-item"}]
+	const productContainer = buildHTML(new HTMLElement("div", productContainerAttributes));
 
 	const checkboxAttributes = [
 		{ key: "type", value: "checkbox" },
