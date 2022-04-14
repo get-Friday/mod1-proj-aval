@@ -1,4 +1,4 @@
-# Projeto Avaliátivo 1
+# Projeto Avaliativo 1
 
 ## Gabriel Elias Thomas
 
