@@ -2,7 +2,7 @@
 
 ## Gabriel Elias Thomas
 
-Esse é o primeiro projeto do curso **DEVinHouse**. 
+Esse é o primeiro projeto do curso **DEVinHouse**. Uma lista de compras que recebe uma entrada de produto do usuário e assim que marcada apresenta ao usuário a oportunidade de adicionar o seu preço assim somando ao total do valor da compra de todos os itens marcados.
 
 Nele são aplicado os estudos de:
 - **HTML**: Principais tags, seus atributos e inclusão de arquivos JS e CSS na página.
