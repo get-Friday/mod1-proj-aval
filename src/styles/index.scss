@@ -88,7 +88,11 @@ main {
 
 #list-container {
     width: 650px;
-    height: 250px;
+    height: min-content;
+
+    min-height: 250px;
+    max-height: 550px;
+    overflow: auto;
 
     padding: 35px;
     margin: 50px 30px 0 0;
@@ -105,7 +109,10 @@ main {
     .list-item {
         @include display-flex(flex-start);
 
-        // customized checkbox
+        margin-bottom: 10px;
+
+        // CUSTOMIZED CHECKBOX 
+
         label {
             display: block;
             position: relative;
@@ -171,6 +178,8 @@ main {
             }
         }
 
+        // END CUSTOMIZED CHECKBOX
+
         button {
             background-color: #FFF;
 
@@ -199,6 +208,7 @@ input {
         outline: none;
     }
 }
+
 // Modal style
 
 #modal {
