@@ -35,7 +35,7 @@ const printProduct = productList => {
 	const span = buildHTML(new HTMLElement("span", spanAttributes));
 
 	checkbox.addEventListener("change", () => {
-		checkItem(uniqueId, productList);
+		checkItem(label, uniqueId, productList);
 	});
 
 	button.innerHTML = "&times;";
@@ -45,6 +45,7 @@ const printProduct = productList => {
 
 	if (productList.checked) {
 		checkbox.checked = true;
+		label.style.textDecoration = 'line-through';
 	}
 
 	// div>label>(input:checkbox+span.chkbox)+button
@@ -65,13 +66,15 @@ const removeProduct = (productName, productHTMLElement) => {
 	productHTMLElement.remove();
 };
 
-const checkItem = (elementId, productObject) => {
+const checkItem = (label, elementId, productObject) => {
 	const checked = document.getElementById(`${elementId}checkbox`).checked;
 
 	if (checked) {
-		updateCheckedAttribute(productObject.name, true);
+		label.style.textDecoration = 'line-through';
+		updateCheckedAttribute(productObject.name, true);	
 		modalQuery(productObject, elementId);
 	} else {
+		label.style.textDecoration = 'none';
 		updateCheckedAttribute(productObject.name, false);
 		printPurchaseAmount();
 	}
