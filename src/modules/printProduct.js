@@ -12,7 +12,7 @@ const printProduct = (productList) => {
 	const uniqueId = Math.floor(Math.random() * 9999);
 	const parentUl = document.getElementById("products-list");
 
-	const productListItemAttributes = [{ key: "class", value: "list-item" }];
+	const productListItemAttributes = [{ key: "id", value: `${uniqueId}-${productList.name}` }, { key: "class", value: "list-item" }];
 	const productListItem = buildHTML(new HTMLElement("li", productListItemAttributes));
 
 	const checkboxAttributes = [

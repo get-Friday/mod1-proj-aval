@@ -4,7 +4,7 @@ html, body {
   position: relative;
   font-family: "Roboto", sans-serif;
   height: 100vh;
-  background: linear-gradient(to bottom right, transparent 50%, #fff 50%) 0 0/100% 100% no-repeat, #0000b4;
+  background: linear-gradient(to bottom right, #0000b4 50%, #fff 50%) 0 0/50% 100% no-repeat, #FFF;
 }
 
 header {
