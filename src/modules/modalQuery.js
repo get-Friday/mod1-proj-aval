@@ -30,7 +30,7 @@ const modalQuery = (product, uniqueId) => {
 	label.innerHTML = `Valor de ${product.name}:`;
 	button.innerHTML = "Inserir";
 
-	// #modal>.modal-content>div>((label+input+button)+span)
+	// #modal>.modal-content>((div>label+input+button)+span)
 	document.body.appendChild(modalDiv);
 	modalDiv.appendChild(contentDiv);
 	contentDiv.appendChild(separatorDiv);
@@ -42,7 +42,7 @@ const modalQuery = (product, uniqueId) => {
 	span.addEventListener("click", () => {
 		const checkbox = document.getElementById(`${uniqueId}checkbox`);
 
-		checkbox.parentElement.style.textDecoration = 'none'
+		checkbox.parentElement.style.textDecoration = 'none' // label
 		checkbox.checked = false;
 		updateCheckedAttribute(product.name, false);
 		modalDiv.remove();

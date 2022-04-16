@@ -48,7 +48,7 @@ const printProduct = productList => {
 		label.style.textDecoration = 'line-through';
 	}
 
-	// div>label>(input:checkbox+span.chkbox)+button
+	// div>(label>(input:checkbox+span.chkbox))+button
 	productContainer.appendChild(label);
 	label.append(productList.name);
 	label.appendChild(checkbox);
