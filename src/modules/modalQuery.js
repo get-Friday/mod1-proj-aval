@@ -5,8 +5,8 @@ import HTMLElement from "./classElement.js";
 import buildHTML from "./buildHTML.js";
 
 const modalQuery = (product, uniqueId) => {
-	const modalDivAttributes = [{ key: "id", value: "modal" }];
-	const modalDiv = buildHTML(new HTMLElement("div", modalDivAttributes));
+	const modalAsideAttributes = [{ key: "id", value: "modal" }];
+	const modalAside = buildHTML(new HTMLElement("aside", modalAsideAttributes));
 
 	const contentDivAttributes = [{ key: "class", value: "modal-content" }];
 	const contentDiv = buildHTML(new HTMLElement("div", contentDivAttributes));
@@ -31,8 +31,8 @@ const modalQuery = (product, uniqueId) => {
 	button.innerHTML = "Inserir";
 
 	// #modal>.modal-content>((div>label+input+button)+span)
-	document.body.appendChild(modalDiv);
-	modalDiv.appendChild(contentDiv);
+	document.body.appendChild(modalAside);
+	modalAside.appendChild(contentDiv);
 	contentDiv.appendChild(separatorDiv);
 	separatorDiv.appendChild(label);
 	separatorDiv.appendChild(input);
@@ -45,7 +45,7 @@ const modalQuery = (product, uniqueId) => {
 		checkbox.parentElement.style.textDecoration = 'none' // label
 		checkbox.checked = false;
 		updateCheckedAttribute(product.name, false);
-		modalDiv.remove();
+		modalAside.remove();
 	});
 
 	button.addEventListener("click", () => {
@@ -67,7 +67,7 @@ const modalQuery = (product, uniqueId) => {
 			return;
 		}
 
-		modalDiv.remove();
+		modalAside.remove();
 		priceProduct(price, product.name);
 		printPurchaseAmount();
 	});
