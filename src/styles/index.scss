@@ -17,7 +17,7 @@ html, body {
     background:
         linear-gradient(to bottom right,#0000b4 50%,#fff 50%) 
         0 0
-        /50% 100% 
+        /60% 100% 
         no-repeat,
     #FFF;
 }
@@ -103,6 +103,8 @@ main {
     border-radius: 25px;
 
     h1 {
+        margin-top: 0;
+
         font-size: 25px;
     }
 
