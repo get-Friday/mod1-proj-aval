@@ -16,3 +16,5 @@ Para a execução do projeto foi usado a extensão do VSCode **LiveServer** exec
 ---
 
 Além disso, para desenvolvimento do arquivo CSS foi utilizado o pré-processador SCSS
+
+[![wakatime](https://wakatime.com/badge/user/76d904ba-8aea-4f36-aff8-a2c863032956/project/42806f22-37af-46a8-99f5-f19e593c667e.svg)](https://wakatime.com/badge/user/76d904ba-8aea-4f36-aff8-a2c863032956/project/42806f22-37af-46a8-99f5-f19e593c667e)
